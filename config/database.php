@@ -1,4 +1,6 @@
 <?php
+require_once("/etc/apache2/data-design/encrypted-config.php");
+$config = readConfig("/etc/apache2/data-design/dmcdonald21.ini");
 
 return [
 
@@ -54,10 +56,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'database'  => env('DB_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
+            'host'      => $config['hostname'],
+            'database'  => $config['database'],
+            'username'  => $config['username'],
+            'password'  => $config['password'],
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
