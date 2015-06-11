@@ -31,4 +31,19 @@ class CreateUsersTable extends Migration
     {
         Schema::drop('users');
     }
+
+	/**
+	 * DEFINE RELATIONSHIPS
+	 * each user has one profile
+	 **/
+	public function profile() {
+		return $this->hasOne('Profile');
+	}
+
+	/**
+	 * each user has many todos
+	 **/
+	public function todos() {
+		return $this->hasMany('Todo');
+	}
 }
